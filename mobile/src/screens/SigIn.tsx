@@ -4,7 +4,7 @@ import Logo from '../assets/logo.svg'
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 export function SingIn(){
-    const {singIn, user } = useAuth();
+    const {singIn, isUserLoading } = useAuth();
 
     return (
         <Center  flex={1} bgColor="gray.900"  p={7} >
@@ -13,6 +13,8 @@ export function SingIn(){
            type={ 'SECONDARY'}
            mt={ 12}
            onPress={ singIn}
+           isLoading={isUserLoading}
+           _loading={{ _spinner:{ color:'white'}}}
            leftIcon={<Icon as={Fontisto} name="google" color="white"size="md" />} /> 
 
            <Text color='white' textAlign={'center'} mt={ 4}>
